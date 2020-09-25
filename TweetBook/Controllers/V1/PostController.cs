@@ -66,7 +66,7 @@ namespace TweetBook.Controllers.V1
            
         }
 
-        //api/v1/posts
+        //api/v1/posts{postId}
         [HttpPut(ApiRoutes.Posts.Update)]
         public IActionResult Update([FromRoute] Guid postId, [FromBody] UpdatePostRequest request)
         {
@@ -81,6 +81,18 @@ namespace TweetBook.Controllers.V1
                 return NotFound();
             }
             return Ok(post);
+        }
+
+        //api/v1/posts{postId}
+        [HttpDelete(ApiRoutes.Posts.Delete)]
+        public IActionResult Delete([FromRoute] Guid postId)
+        {
+            var deleted = _postService.DeletePost(postId);
+            if(!deleted)
+            {
+                return NotFound();
+            }
+            return NoContent();
         }
     }
 }
