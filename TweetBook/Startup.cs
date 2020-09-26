@@ -49,6 +49,9 @@ namespace TweetBook
                 app.UseHsts();
             }
 
+            //adiciona o middleware de autenticação
+            app.UseAuthentication();
+
             var swaggerOptions = new Options.SwaggerOptions();
             Configuration.GetSection(nameof(Options.SwaggerOptions)).Bind(swaggerOptions);
 
