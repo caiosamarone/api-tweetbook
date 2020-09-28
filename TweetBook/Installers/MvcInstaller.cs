@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TweetBook.Options;
+using TweetBook.Services;
 
 namespace TweetBook.Installers
 {
@@ -22,6 +23,8 @@ namespace TweetBook.Installers
             configuration.Bind(nameof(jwtSettings), jwtSettings);
 
             services.AddSingleton(jwtSettings);
+
+            services.AddScoped<IIdentityService, IdentityService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -59,8 +62,9 @@ namespace TweetBook.Installers
                 x.AddSecurityDefinition("Bearer", new ApiKeyScheme
                 {
                     Description = "JWT Authorization header usando o esquema bearer",
+                    Name = "Authorization",
                     In = "header",
-                    Type = "apiKey"
+                    Type = "apiKey"     
                 });
 
                 x.AddSecurityRequirement(security);
