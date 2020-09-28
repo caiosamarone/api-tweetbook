@@ -79,7 +79,7 @@ namespace TweetBook.Services
         }
 
         //GERAR TOKEN
-        private AuthenticationResult GenerateAuthenticationResultForUser(IdentityUser newUser)
+        private AuthenticationResult GenerateAuthenticationResultForUser(IdentityUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             //gerando uma chave jwt para o usuario
@@ -88,10 +88,10 @@ namespace TweetBook.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(JwtRegisteredClaimNames.Sub, newUser.Email),
+                    new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Email, newUser.Email),
-                    new Claim("id",newUser.Id)
+                    new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                    new Claim("id",user.Id)
                 }),
                 //expiração do token
                 Expires = DateTime.UtcNow.AddHours(2),

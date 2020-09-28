@@ -10,6 +10,7 @@ using TweetBook.Contracts.V1;
 using TweetBook.Contracts.V1.Requests;
 using TweetBook.Contracts.V1.Responses;
 using TweetBook.Domain;
+using TweetBook.Extensions;
 using TweetBook.Services;
 
 namespace TweetBook.Controllers.V1
@@ -52,7 +53,11 @@ namespace TweetBook.Controllers.V1
         public async Task<IActionResult> Create([FromBody]CreatePostRequest postRequest)
         {
             
-            var post = new Post { Name = postRequest.Name };
+            var post = new Post 
+            { 
+                Name = postRequest.Name,
+                UserId = HttpContext.GetUserId()   //HttpContext vem da classe do controller
+            };
            
             await _postService.CreatePost(post);
 
@@ -69,11 +74,20 @@ namespace TweetBook.Controllers.V1
         [HttpPut(ApiRoutes.Posts.Update)]
         public async Task<IActionResult> Update([FromRoute] Guid postId, [FromBody] UpdatePostRequest request)
         {
-            var post = new Post
+            var userOwnsPost = await _postService.UserOwnsPost(postId, HttpContext.GetUserId());    
+
+            if(!userOwnsPost)
             {
-                Id = postId,
-                Name = request.Name
-            };
+                return BadRequest(new
+                {
+                    error = "Você não tem permissão para atualizar este post."
+                });
+            }
+
+            var post = await _postService.GetPostById(postId);
+            //atualizando o nome que veio do Body da request 
+            post.Name = request.Name;
+
             var updated = await _postService.UpdatePost(post);
             if (!updated)
             {
@@ -86,6 +100,16 @@ namespace TweetBook.Controllers.V1
         [HttpDelete(ApiRoutes.Posts.Delete)]
         public async Task<IActionResult> Delete([FromRoute] Guid postId)
         {
+            var userOwnsPost = await _postService.UserOwnsPost(postId, HttpContext.GetUserId());
+
+            if (!userOwnsPost)
+            {
+                return BadRequest(new
+                {
+                    error = "Você não tem permissão para deletar este post."
+                });
+            }
+
             var deleted = await _postService.DeletePost(postId);
             if(!deleted)
             {

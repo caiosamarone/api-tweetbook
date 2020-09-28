@@ -54,5 +54,21 @@ namespace TweetBook.Services
             return created > 0;
             
         }
+
+        public async Task<bool> UserOwnsPost(Guid postId, string userId)
+        {
+            var post = await _dataContext.Posts.AsNoTracking().SingleOrDefaultAsync(x => x.Id == postId);
+
+            if(post == null)
+            {
+                return false;
+            }
+            if (post.UserId != userId)
+            {
+                return false; 
+            }
+            return true;
+                
+        }
     }
 }
