@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "auYlsc3Cd4YYVDmINbS/McK0bgLp1TehtGfQeP4qR26sgAIYc0RV6f6AqSjfQSbdeKbQIduRZauwSF3QI1Ovqg==",
+  "dgSpecHash": "IJGq6FraPw1czbpZreg3yyd1MhNi7Hbn4ry5o0YI+vhVB9QBZ9TIP0cmAtgXTqSRI5jveu9vtsOFuC4H7UhQZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Caio Mendes\\source\\repos\\TweetBook\\TweetBook\\TweetBook.csproj",
+  "projectFilePath": "D:\\Caio Mendes\\Projetos\\C#\\PrjTentativa\\api-tweetbook\\TweetBook\\TweetBook.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",

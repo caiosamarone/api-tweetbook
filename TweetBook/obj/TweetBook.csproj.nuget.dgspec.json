@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Caio Mendes\\source\\repos\\TweetBook\\TweetBook\\TweetBook.csproj": {}
+    "D:\\Caio Mendes\\Projetos\\C#\\PrjTentativa\\api-tweetbook\\TweetBook\\TweetBook.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Caio Mendes\\source\\repos\\TweetBook\\TweetBook\\TweetBook.csproj": {
+    "D:\\Caio Mendes\\Projetos\\C#\\PrjTentativa\\api-tweetbook\\TweetBook\\TweetBook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Caio Mendes\\source\\repos\\TweetBook\\TweetBook\\TweetBook.csproj",
+        "projectUniqueName": "D:\\Caio Mendes\\Projetos\\C#\\PrjTentativa\\api-tweetbook\\TweetBook\\TweetBook.csproj",
         "projectName": "TweetBook",
-        "projectPath": "C:\\Users\\Caio Mendes\\source\\repos\\TweetBook\\TweetBook\\TweetBook.csproj",
+        "projectPath": "D:\\Caio Mendes\\Projetos\\C#\\PrjTentativa\\api-tweetbook\\TweetBook\\TweetBook.csproj",
         "packagesPath": "C:\\Users\\Caio Mendes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Caio Mendes\\source\\repos\\TweetBook\\TweetBook\\obj\\",
+        "outputPath": "D:\\Caio Mendes\\Projetos\\C#\\PrjTentativa\\api-tweetbook\\TweetBook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
